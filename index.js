@@ -10,6 +10,10 @@ var args = require('minimist')(process.argv, {
   boolean:['verbose']
 })
 
+process.on('SIGINT', function() {
+  process.exit();
+})
+
 var Server = require('./server')
 var server = http.createServer(Server(args))
 
